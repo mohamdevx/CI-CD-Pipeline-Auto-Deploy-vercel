@@ -1,10 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CI/CD Pipeline with Next.js and Vercel
+
+This project is a demonstration of setting up a Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Next.js application, with automatic deployments to Vercel.
+
+The goal is to have a streamlined workflow where every push to the `main` branch on GitHub automatically triggers a new deployment on Vercel.
+
+## Tech Stack
+
+- Next.js
+- React
+- Tailwind CSS
+- TypeScript
+- Vercel for deployment.
 
 ## Getting Started
 
-First, run the development server:
+To run the development server locally, first install the dependencies:
 
 ```bash
+npm install
+# or
 npm run dev
 # or
 yarn dev
