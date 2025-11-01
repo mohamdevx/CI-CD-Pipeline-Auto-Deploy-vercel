@@ -2,28 +2,33 @@ pipeline {
     agent any
 
     environment {
-        VERCEL_TOKEN = credentials('vercel_token')
+        VERCEL_TOKEN = credentials('vercel_token') // Make sure this is added in Jenkins credentials
     }
 
     stages {
         stage('Install') {
             steps {
-                bat 'npm install'
+                // Use 'sh' instead of 'bat' for Linux
+                sh 'npm install'
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Skipping tests - no test script found'
             }
         }
+
         stage('Build') {
             steps {
-                bat 'npm run build'
+                sh 'npm run build'
             }
         }
+
         stage('Deploy') {
             steps {
-                bat 'npx vercel --prod --yes --token=%VERCEL_TOKEN%'
+                // Deploy to Vercel using token from Jenkins credentials
+                sh 'npx vercel --prod --yes --token=$VERCEL_TOKEN'
             }
         }
     }
